@@ -12,7 +12,7 @@ interface IVideoItemProps {
 }
 
 export function VideoItem({ video, Icon }: IVideoItemProps) {
-  return <li className="w-[230px]">
+  return <li>
     <div className="relative mb-2">
       <Link href={PUBLIC_PAGE.VIDEO(video.id)}>
         <Image
@@ -21,7 +21,7 @@ export function VideoItem({ video, Icon }: IVideoItemProps) {
           width={230}
           height={140}
           priority={true}
-          className="rounded-md"
+          className="rounded-md w-full"
         />
       </Link>
 
@@ -49,7 +49,7 @@ export function VideoItem({ video, Icon }: IVideoItemProps) {
     </Link>
 
     <Link href={PUBLIC_PAGE.CHANNEL(video.channel.slug)} className="flex items-center gap-1 mt-1">
-      <span className="text-sm opacity-75">{video.channel.slug}</span>
+      <span className="text-xs opacity-75">{video.channel.slug}</span>
       {video.channel.isVerified && <BadgeCheck color="green" size={14} />}
     </Link>
   </li>

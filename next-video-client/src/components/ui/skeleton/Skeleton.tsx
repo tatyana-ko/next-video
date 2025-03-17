@@ -7,7 +7,7 @@ interface ISceletonProps {
   className?: string
 }
 
-export function Sceleton({ quantity = 1, style, className = '' }: ISceletonProps) {
+export function Skeleton({ quantity = 1, style, className = '' }: ISceletonProps) {
   return <>
     {Array.from({ length: quantity }).map((_, i) => (
       <div 

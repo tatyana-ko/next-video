@@ -15,8 +15,8 @@ export function SidebarHeader({toggleSidebar}: ISidebarHeaderProps) {
       <AlignJustify />
     </button>
     <Link href={PUBLIC_PAGE.HOME_PAGE} >
-      <div className="flex items-center">
-        <ChevronRight color='red' size={26} />
+      <div className="flex items-center relative">
+        <ChevronRight color='red' size={26} className="absolute left-[-18px]" />
         <span className="font-semibold uppercase">ideo</span>
       </div>
     </Link>
