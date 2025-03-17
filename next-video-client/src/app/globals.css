@@ -3,6 +3,8 @@
 :root {
   --background: #191B28;
   --foreground: #eaeeef;
+
+  --sidebar-width: 15rem;
 }
 
 body {
