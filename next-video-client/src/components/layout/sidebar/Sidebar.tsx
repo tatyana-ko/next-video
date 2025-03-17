@@ -1,4 +1,4 @@
-import { SidebarMenu } from "./all-menu/SidebarMenu";
+import { SidebarMenu } from "./sidebar-menu/SidebarMenu";
 import { SidebarHeader } from "./header/SidebarHeader";
 import { SIDEBAR_CHANNEL_DATA, SIDEBAR_CHANNEL_SETTINGS_MENU, SIDEBAR_PUBLIC_DATA } from "./sidebar.data";
 // import { SidebarSubscriptions } from "./subscriptions/SidebarSubscriptions";
@@ -12,7 +12,7 @@ export function Sidebar() {
 
       {/* <SidebarSubscriptions title={Subscriptions} /> */}
 
-      <SidebarMenu items={SIDEBAR_CHANNEL_SETTINGS_MENU} />
+      <SidebarMenu items={SIDEBAR_CHANNEL_SETTINGS_MENU} title="Settings:" />
     </aside>
   )
 }
