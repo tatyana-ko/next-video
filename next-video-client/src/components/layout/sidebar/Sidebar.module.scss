@@ -1,21 +1,21 @@
 .hideSidebar > aside {
-  width: 3.8rem;
-  flex-grow: 0;
+	width: 3.8rem;
+	flex-grow: 0;
 
-  >div:first-child >a{
-    opacity: 0;
-    transition: opacity 0.55s;
-  }
+	> div:first-child > a {
+		opacity: 0;
+		transition: opacity 0.55s;
+	}
 }
 
 .hideSidebar > div {
-  width: 100%;
+	width: 100%;
 }
 
 .showedSidebar > aside {
-  width: var(--sidebar-width);
+	width: var(--sidebar-width);
 }
 
 .initialSidebar > aside {
-  transition: width 0.55s;
+	transition: width 0.55s;
 }

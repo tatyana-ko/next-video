@@ -1,28 +1,28 @@
 class PublicPage {
-  HOME_PAGE = '/'
-  TRENDING = '/trending'
-  VIDEO_GAMES = '/video-games'
+	HOME_PAGE = '/';
+	TRENDING = '/trending';
+	VIDEO_GAMES = '/video-games';
 
-  MY_CHANNEL = '/my-channel'
-  SUBSCRIPTIONS = '/subscriptions'
-  HISTORY = '/history'
-  LIKED_VIDEOS = '/liked-videos'
+	MY_CHANNEL = '/my-channel';
+	SUBSCRIPTIONS = '/subscriptions';
+	HISTORY = '/history';
+	LIKED_VIDEOS = '/liked-videos';
 
-  FEEDBACK = '/feedback'
+	FEEDBACK = '/feedback';
 
-  AUTH = '/auth'
+	AUTH = '/auth';
 
-  VIDEO = (path: string) => {
-    return `/v/${path}`
-  }
+	VIDEO = (path: string) => {
+		return `/v/${path}`;
+	};
 
-  CHANNEL = (path: string) => {
-    return `/c/${path}`
-  }
+	CHANNEL = (path: string) => {
+		return `/c/${path}`;
+	};
 
-  SEARCH = (searchQuery: string) => {
-    return `/search?term=${searchQuery}`
-  }
+	SEARCH = (searchQuery: string) => {
+		return `/search?term=${searchQuery}`;
+	};
 }
 
 export const PUBLIC_PAGE = new PublicPage();

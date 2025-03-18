@@ -1,8 +1,8 @@
-import dayjs from 'dayjs'
-import relativeDate from 'dayjs/plugin/relativeTime'
+import dayjs from 'dayjs';
+import relativeDate from 'dayjs/plugin/relativeTime';
 
-dayjs.extend(relativeDate)
+dayjs.extend(relativeDate);
 
 export function transformDate(createdAt: string): string {
-  return dayjs(createdAt).fromNow()
+	return dayjs(createdAt).fromNow();
 }
