@@ -1,4 +1,6 @@
 import { axiosClassic } from '@/api/axios';
+import { removeAuthData, setAuthData } from '@/redux/auth.slice';
+import { store } from '@/store';
 import type { IAuthData } from '@/types/auth.types';
 import { EnumTokens } from '@/types/enum.tokens';
 import type { IUser } from '@/types/user.types';
@@ -32,6 +34,7 @@ class AuthService {
 		});
 
 		if (response.data.accessToken) {
+			store.dispatch(setAuthData(response.data));
 			this._saveTokenToStorage(response.data.accessToken);
 		}
 
@@ -42,6 +45,7 @@ class AuthService {
 		const response = await axiosClassic.post<boolean>(`${this._AUTH}/logout`);
 
 		if (response.data) {
+			store.dispatch(removeAuthData());
 			this._removeTokenFromStorage();
 		}
 
@@ -52,6 +56,7 @@ class AuthService {
 		const response = await axiosClassic.post<IAuthResponse>(`${this._AUTH}/access-token`);
 
 		if (response.data.accessToken) {
+			store.dispatch(setAuthData(response.data));
 			this._saveTokenToStorage(response.data.accessToken);
 		}
 
