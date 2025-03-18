@@ -2,19 +2,19 @@ import { axiosClassic } from '@/api/axios';
 
 class VideoService {
 	getExploreVideos() {
-		return axiosClassic(`/videos/explore`);
+		return axiosClassic.get(`/videos/explore`);
 	}
 
 	getTrendingVideos() {
-		return axiosClassic(`/videos/trending`);
+		return axiosClassic.get(`/videos/trending`);
 	}
 
 	getVideosAboutGames() {
-		return axiosClassic(`/videos/games`);
+		return axiosClassic.get(`/videos/games`);
 	}
 
 	searchVideos(searchTerm: string | null) {
-		return axiosClassic(
+		return axiosClassic.get(
 			`/videos`,
 			searchTerm
 				? {

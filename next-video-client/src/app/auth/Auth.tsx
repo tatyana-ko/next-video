@@ -1,45 +1,37 @@
 'use client'
 
 import { PUBLIC_PAGE } from "@/config/public-page.config"
+import { useAuthForm } from "@/hooks/useAuthForm"
+import type { IAuthForm } from "@/types/auth.types"
 import { Button } from "@/ui/button/Button"
 import { Field } from "@/ui/field/Field"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
-import { useForm, type SubmitHandler } from "react-hook-form"
+import ReCAPTCHA from "react-google-recaptcha"
+import { useForm } from "react-hook-form"
 
-export interface IAuthForm {
-  login: string
-  password: string
-  confirmPassword: string
-}
 
 export function Auth() {
   const [isALoginForm, setIsALoginForm] = useState<boolean>(true)
 
-  const { register, handleSubmit, watch, formState: { errors }, } = useForm<IAuthForm>({
+  const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<IAuthForm>({
     mode: 'onChange'
   })
 
-  const onSubmitForm: SubmitHandler<IAuthForm> = (data) => {
-    if (isALoginForm) {
-      console.log('log', data);
-    } else {
-      console.log('regis', data);
-    }
-  }
+  const { isLoading, onSubmitForm, recaptchaRef } = useAuthForm(isALoginForm ? 'login' : 'register', reset)
 
   return (
     <div>
       <Link href={PUBLIC_PAGE.HOME_PAGE}>
-				<div className='flex items-center p-2'>
-					<ChevronRight
-						color='red'
-						size={26}
-					/>
-					<span className='font-semibold uppercase'>ideo</span>
-				</div>
-			</Link>
+        <div className='flex items-center p-2'>
+          <ChevronRight
+            color='red'
+            size={26}
+          />
+          <span className='font-semibold uppercase'>ideo</span>
+        </div>
+      </Link>
 
       <div className="max-w-md mx-auto mt-8">
         <div className="flex justify-center mb-6 gap-5 ">
@@ -67,8 +59,8 @@ export function Auth() {
             type='email'
             placeholder="example@gmail.com"
             label="Email:"
-            registration={register('login', { required: "Field is required", maxLength: 15 })}
-            error={errors.login?.message}
+            registration={register('email', { required: "Field is required", maxLength: 15 })}
+            error={errors.email?.message}
           />
 
           <Field
@@ -92,8 +84,16 @@ export function Auth() {
             />
           }
 
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
+            ref={recaptchaRef}
+            size="normal"
+          />
+
           <Button
+            isLoading={isLoading}
             className="mt-8"
+            type="submit"
           >
             {isALoginForm ? 'Login' : 'Registration'}
           </Button>
