@@ -6,6 +6,7 @@ import { VideoItem } from '@/ui/video-item/VideoItem';
 import type { IVideo } from '@/types/video.types';
 import { Title } from '@/ui/title/Title';
 import { Skeleton } from '@/ui/skeleton/Skeleton';
+import { Compass } from 'lucide-react';
 
 export default function Explore() {
 	const { isPending, data } = useQuery({
@@ -15,7 +16,7 @@ export default function Explore() {
 
 	return (
 		<>
-			<Title>Explore</Title>
+			<Title Icon={Compass}>Explore</Title>
 			<ul className='grid grid-cols-5 gap-2'>
 				{isPending ? (
 					<Skeleton

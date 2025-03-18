@@ -23,11 +23,9 @@ export const metadata: Metadata = {
 export default async function Home() {
 	const data = await videoService.getTrendingVideos();
 
-	console.log('revalidate');
-
 	return (
 		<div>
-			<>
+			<section className='mb-4'>
 				<Title Icon={Flame}>Trending</Title>
 				<ul className='grid grid-cols-5 gap-2'>
 					{data?.data &&
@@ -38,7 +36,7 @@ export default async function Home() {
 							/>
 						))}
 				</ul>
-			</>
+			</section>
 
 			<Explore />
 		</div>
