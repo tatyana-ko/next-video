@@ -5,6 +5,7 @@ export interface IChannel {
 	slug: string;
 	description: string;
 	avatarUrl: string;
+	bannerUrl: string;
 	isVerified: string;
 	videos: IVideo[];
 	subscribers: [];

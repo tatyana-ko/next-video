@@ -2,35 +2,24 @@
 
 import { PUBLIC_PAGE } from "@/config/public-page.config"
 import { useAuthForm } from "@/hooks/useAuthForm"
-import type { RootState } from "@/store"
 import type { IAuthForm } from "@/types/auth.types"
 import { Button } from "@/ui/button/Button"
 import { Field } from "@/ui/field/Field"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
 import { useForm } from "react-hook-form"
-import { useSelector } from "react-redux"
 
 
 export function Auth() {
   const [isALoginForm, setIsALoginForm] = useState<boolean>(true)
-  const router = useRouter();
-  const { accessToken } = useSelector((state: RootState) => state.auth)
 
   const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<IAuthForm>({
     mode: 'onChange'
   })
 
   const { isLoading, onSubmitForm, recaptchaRef } = useAuthForm(isALoginForm ? 'login' : 'register', reset)
-
-  useEffect(() => {
-    if (!accessToken) return
-
-    router.push(PUBLIC_PAGE.HOME_PAGE)
-  }, [accessToken, router])
 
   return (
     <div>
