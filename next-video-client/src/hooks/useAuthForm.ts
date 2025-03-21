@@ -20,7 +20,6 @@ export function useAuthForm(type: 'login' | 'register', reset: UseFormReset<IAut
 	});
 
 	const onSubmitForm: SubmitHandler<IAuthForm> = ({ email, password }) => {
-		console.log(888);
 		const token = recaptchaRef.current?.getValue();
 
 		if (!token) {

@@ -18,12 +18,9 @@ class AuthService {
 		Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
 			domain: 'localhost',
 			sameSite: 'strict',
-			expires: 10,
+			expires: 1 / 24,
+			secure: true,
 		});
-	}
-
-	private _removeTokenFromStorage() {
-		Cookies.remove(EnumTokens.ACCESS_TOKEN);
 	}
 
 	async main(type: 'login' | 'register', data: IAuthData, recaptcha?: string | null) {
@@ -41,12 +38,29 @@ class AuthService {
 		return response;
 	}
 
+	async initialAuth() {
+		const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN);
+
+		if (accessToken) return;
+
+		try {
+			await this.getNewToken();
+		} catch (error: unknown) {
+			store.dispatch(removeAuthData());
+			console.log(error);
+		}
+	}
+
+	removeTokenFromStorage() {
+		Cookies.remove(EnumTokens.ACCESS_TOKEN);
+		store.dispatch(removeAuthData());
+	}
+
 	async logout() {
 		const response = await axiosClassic.post<boolean>(`${this._AUTH}/logout`);
 
 		if (response.data) {
-			store.dispatch(removeAuthData());
-			this._removeTokenFromStorage();
+			this.removeTokenFromStorage();
 		}
 
 		return response;

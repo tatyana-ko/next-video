@@ -9,7 +9,6 @@ export interface IUser {
 }
 
 export interface IFullUserInfo extends IUser {
-  channel?: IChannel
   subscriptions: IChannel[]
   watchHistory: IWatchHistory[]
 }
