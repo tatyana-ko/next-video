@@ -1,3 +1,4 @@
+import type { IFullUserInfo } from './user.types';
 import type { IVideo } from './video.types';
 
 export interface IChannel {
@@ -9,4 +10,7 @@ export interface IChannel {
 	isVerified: string;
 	videos: IVideo[];
 	subscribers: [];
+	user: IFullUserInfo;
 }
+
+

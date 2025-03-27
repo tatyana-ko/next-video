@@ -1,0 +1,24 @@
+.volumeSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volumeSlider::-moz-range-thumb {
+	width: 10px;
+	height: 10px;
+	background-color: white;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.volumeSlider::-ms-thumb {
+	width: 10px;
+	height: 10px;
+	background-color: white;
+	border-radius: 50%;
+	cursor: pointer;
+}

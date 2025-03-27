@@ -4,7 +4,7 @@ import { STUDIO_PAGE } from "@/config/studio-page.config";
 import { useProfile } from "@/hooks/useProfile";
 
 export function HeaderAvatar() {
-  const { profile, isLoading } = useProfile();
+  const { profile } = useProfile();
 
   return <div>
     {profile && <Link href={STUDIO_PAGE.HOME}>

@@ -15,7 +15,7 @@ export function VideoItem({ video, Icon }: IVideoItemProps) {
 	return (
 		<li>
 			<div className='relative mb-2'>
-				<Link href={PUBLIC_PAGE.VIDEO(video.id)}>
+				<Link href={PUBLIC_PAGE.VIDEO(video.publicId)}>
 					<Image
 						src={video.thumbnailUrl}
 						alt={video.title}
@@ -45,7 +45,7 @@ export function VideoItem({ video, Icon }: IVideoItemProps) {
 				<span className='text-xs opacity-45'>{transformDate(video.createdAt)}</span>
 			</div>
 
-			<Link href={PUBLIC_PAGE.VIDEO(video.id)}>
+			<Link href={PUBLIC_PAGE.VIDEO(video.publicId)}>
 				<h3 className='line-clamp-2 text-sm leading-[1.3]'>{video.title}</h3>
 			</Link>
 

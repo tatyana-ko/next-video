@@ -1,4 +1,5 @@
 import { axiosClassic } from '@/api/axios';
+import type { IVideoResponse, IVideosPagination } from '@/types/video.types';
 
 class VideoService {
 	getExploreVideos() {
@@ -14,7 +15,7 @@ class VideoService {
 	}
 
 	searchVideos(searchTerm: string | null) {
-		return axiosClassic.get(
+		return axiosClassic.get<IVideosPagination>(
 			`/videos`,
 			searchTerm
 				? {
@@ -24,6 +25,10 @@ class VideoService {
 					}
 				: {},
 		);
+	}
+
+	getVideoByPublicId(publicId: string | null) {
+		return axiosClassic.get<IVideoResponse>(`/videos/by-publicId/${publicId}`);
 	}
 }
 export const videoService = new VideoService();

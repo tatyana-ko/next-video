@@ -7,7 +7,13 @@ import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
 
 export function Providers({ children }: { children: ReactNode }) {
-	const [queryClient] = useState(() => new QueryClient());
+	const [queryClient] = useState(() => new QueryClient({
+		defaultOptions: {
+			queries: {
+				retry: 1
+			}
+		}
+	}));
 
 	return (
 		<QueryClientProvider client={queryClient}>

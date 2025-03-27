@@ -8,6 +8,7 @@ interface IMenuItemProps {
 }
 
 export function MenuItem({ item, isActiveLink }: IMenuItemProps) {
+
 	return (
 		<li className='py-3'>
 			<Link

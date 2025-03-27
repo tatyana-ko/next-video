@@ -17,7 +17,7 @@ class PublicPage {
 	};
 
 	CHANNEL = (path: string) => {
-		return `/c/${path}`;
+		return `/channel/${path}`;
 	};
 
 	SEARCH = (searchQuery: string) => {

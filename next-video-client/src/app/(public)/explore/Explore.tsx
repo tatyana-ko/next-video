@@ -1,12 +1,12 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
+import { Compass } from 'lucide-react';
 import { videoService } from '@/services/video.service';
 import { VideoItem } from '@/ui/video-item/VideoItem';
 import type { IVideo } from '@/types/video.types';
 import { Title } from '@/ui/title/Title';
 import { Skeleton } from '@/ui/skeleton/Skeleton';
-import { Compass } from 'lucide-react';
 
 export default function Explore() {
 	const { isPending, data } = useQuery({

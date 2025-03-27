@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 		template: `%s | >ideo`,
 	},
 	description: 'Video viewing platform',
+	metadataBase: new URL('http://localhost:3000/')
 };
 
 export default function RootLayout({

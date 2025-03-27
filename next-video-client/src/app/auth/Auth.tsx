@@ -11,7 +11,6 @@ import {  useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
 import { useForm } from "react-hook-form"
 
-
 export function Auth() {
   const [isALoginForm, setIsALoginForm] = useState<boolean>(true)
 

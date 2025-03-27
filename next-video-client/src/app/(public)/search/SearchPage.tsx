@@ -5,8 +5,8 @@ import { useQuery } from '@tanstack/react-query';
 import { videoService } from '@/services/video.service';
 import { Title } from '@/ui/title/Title';
 import { Skeleton } from '@/ui/skeleton/Skeleton';
-import type { IVideo } from '@/types/video.types';
 import { VideoItem } from '@/ui/video-item/VideoItem';
+import type { IVideo } from '@/types/video.types';
 
 export function SearchPage() {
 	const searchParams = useSearchParams();

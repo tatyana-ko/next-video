@@ -8,6 +8,7 @@ export function HeaderLinks() {
 			<Link
 				href={STUDIO_PAGE.UPLOAD_VIDEO}
 				className='opacity-80 hover:opacity-100'
+				title='upload video'
 			>
 				<PlusIcon size={16} />
 			</Link>
@@ -15,6 +16,7 @@ export function HeaderLinks() {
 			<Link
 				href={STUDIO_PAGE.HOME}
 				className='opacity-80 hover:opacity-100'
+				title='studio page'
 			>
 				<LayoutGrid size={16} />
 			</Link>
@@ -22,6 +24,7 @@ export function HeaderLinks() {
 			<Link
 				href={STUDIO_PAGE.HOME}
 				className='opacity-80 hover:opacity-100'
+				title='notifications'
 			>
 				<Bell size={16} />
 			</Link>

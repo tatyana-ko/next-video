@@ -10,7 +10,9 @@ import {
 	Gamepad2,
 	History,
 	Settings,
+	TvMinimal,
 	TvMinimalPlay,
+	Upload,
 } from 'lucide-react';
 
 export const SIDEBAR_PUBLIC_DATA: ISidebarItem[] = [
@@ -56,13 +58,26 @@ export const SIDEBAR_CHANNEL_DATA = [
 
 export const SIDEBAR_CHANNEL_SETTINGS_MENU = [
 	{
+		icon: CircleAlert,
+		label: 'Send Feedback',
+		link: PUBLIC_PAGE.FEEDBACK,
+	},
+];
+
+export const STUDIO_MENU = [
+	{
+		icon: TvMinimal,
+		label: 'Studio',
+		link: STUDIO_PAGE.HOME,
+	},
+	{
 		icon: Settings,
 		label: 'Settings',
 		link: STUDIO_PAGE.SETTINGS,
 	},
 	{
-		icon: CircleAlert,
-		label: 'Send Feedback',
-		link: PUBLIC_PAGE.FEEDBACK,
+		icon: Upload,
+		label: 'Upload video',
+		link: STUDIO_PAGE.UPLOAD_VIDEO,
 	},
 ];

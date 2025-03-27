@@ -1,7 +1,8 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { getTokensFromRequest } from './utils/get-tokens-from-request';
-import { redirectToLogin } from './utils/redirect-to-login';
-import { jwtVerifyServer } from './utils/jwt-verify';
+import { getTokensFromRequest } from '../utils/get-tokens-from-request';
+import { redirectToLogin } from '../utils/redirect-to-login';
+import { jwtVerifyServer } from '../utils/jwt-verify';
+
 
 export async function protectStudio(request: NextRequest) {
 	const tokens = await getTokensFromRequest(request);
