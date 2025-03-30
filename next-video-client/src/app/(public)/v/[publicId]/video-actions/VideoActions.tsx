@@ -1,9 +1,10 @@
 'use client'
 
 import { useProfile } from "@/hooks/useProfile";
+import { playlistsService } from "@/services/playlists.service";
 import { userService } from "@/services/user.service";
 import type { IVideoResponse } from "@/types/video.types";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { FolderHeart, Heart } from "lucide-react";
 import { startTransition, useEffect, useState } from "react";
 
@@ -30,6 +31,17 @@ export default function VideoActions({ video, likes }: { video: IVideoResponse, 
       refetch()
     }
   });
+
+  const {data} = useQuery({
+    queryKey: ['playlists'],
+    queryFn: () => playlistsService.getAllUserPlaylists()
+  })
+
+  const {mutate: toggleVideoInPlaylist, isPending} = useMutation({
+    mutationKey: ['toggle video in playlist'],
+    mutationFn: (playlistId: string) => playlistsService.toggleVideoOnPlaylist(playlistId, video.id),
+
+  })
 
 
   return (

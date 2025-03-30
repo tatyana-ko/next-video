@@ -11,8 +11,10 @@ import { VideoDescription } from './description/VideoDescription';
 import VideoActions from './video-actions/VideoActions';
 import { VideoPlayer } from '@/ui/video-player/VideoPlayer';
 import { Comments } from './comments/Comments';
+import { useWatchHistory } from '@/hooks/useWatchHistory';
 
 export function VideoPage({ video }: {video: IVideoResponse}) {
+  useWatchHistory({video});
   
   return (
     <section className='grid grid-cols-[2.7fr_1fr] gap-10'>

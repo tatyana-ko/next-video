@@ -5,6 +5,7 @@ class PublicPage {
 
 	MY_CHANNEL = '/my-channel';
 	SUBSCRIPTIONS = '/subscriptions';
+	PLAYLISTS = '/playlists';
 	HISTORY = '/history';
 	LIKED_VIDEOS = '/liked-videos';
 
@@ -23,6 +24,10 @@ class PublicPage {
 	SEARCH = (searchQuery: string) => {
 		return `/search?term=${searchQuery}`;
 	};
+
+	PLAYLIST_PATH = (path: string) => {
+		return `/playlists${path? `/${path}` : ''}`;
+	}
 }
 
 export const PUBLIC_PAGE = new PublicPage();

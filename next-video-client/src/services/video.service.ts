@@ -2,7 +2,7 @@ import { axiosClassic } from '@/api/axios';
 import type { IVideoResponse, IVideosPagination } from '@/types/video.types';
 
 class VideoService {
-	getExploreVideos() {
+		getExploreVideos() {
 		return axiosClassic.get(`/videos/explore`);
 	}
 
@@ -29,6 +29,10 @@ class VideoService {
 
 	getVideoByPublicId(publicId: string | null) {
 		return axiosClassic.get<IVideoResponse>(`/videos/by-publicId/${publicId}`);
+	}
+
+	updateViews(publicId: string) {
+		return axiosClassic.put(`/videos/update-views-count/${publicId}`);
 	}
 }
 export const videoService = new VideoService();

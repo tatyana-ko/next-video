@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type Dispatch, type SetStateAction } from "react"
 
 type TypeOut = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ref: any
   isVisible: boolean
   setIsVisible: Dispatch<SetStateAction<boolean>>

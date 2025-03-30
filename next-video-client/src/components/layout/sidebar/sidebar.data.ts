@@ -9,6 +9,7 @@ import {
 	FolderHeart,
 	Gamepad2,
 	History,
+	ListVideo,
 	Settings,
 	TvMinimal,
 	TvMinimalPlay,
@@ -43,6 +44,11 @@ export const SIDEBAR_CHANNEL_DATA = [
 		icon: CirclePlay,
 		label: 'Subscriptions',
 		link: PUBLIC_PAGE.SUBSCRIPTIONS,
+	},
+	{
+		icon: ListVideo,
+		label: 'Playlists',
+		link: PUBLIC_PAGE.PLAYLISTS,
 	},
 	{
 		icon: History,
