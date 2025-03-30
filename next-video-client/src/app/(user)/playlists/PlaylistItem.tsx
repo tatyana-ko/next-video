@@ -15,7 +15,7 @@ export function PlaylistItem({ playlist }: Props) {
       >
         <Image
           alt='playlist cover'
-          src={playlist.videos[0].thumbnailUrl || '\playlist-cover.jpg'}
+          src={playlist.videos[0]?.thumbnailUrl || '/playlist-cover.jpg'}
           width={300}
           height={135}
         />
