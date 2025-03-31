@@ -3,6 +3,7 @@
 import { commentService } from "@/services/comment.service";
 import type { RootState } from "@/store";
 import type { ICommentData } from "@/types/comments.types"
+import { Button } from "@/ui/button/Button";
 import { useMutation } from "@tanstack/react-query";
 import { useForm, type SubmitHandler } from "react-hook-form"
 import { useSelector } from "react-redux";
@@ -50,12 +51,7 @@ export function AddCommentForm({ videoId, refetch }: IAddCommentFormProps) {
         placeholder="Add comment..."
         className="w-full border-b border-b-gray-500"
       />
-      <button
-        type="submit"
-        className="px-3 py-1 rounded-md border border-gray-500"
-      >
-        Save
-      </button>
+      <Button type="submit">Save</Button>
     </form>
   )
 }

@@ -1,5 +1,6 @@
 import { playlistsService } from "@/services/playlists.service"
 import type { IPlaylistData } from "@/types/playlists.types"
+import { Button } from "@/ui/button/Button"
 import { Field } from "@/ui/field/Field"
 import { useMutation } from "@tanstack/react-query"
 import type { Dispatch, SetStateAction } from "react"
@@ -56,13 +57,9 @@ export function CreatePlaylist({ refetch, setIsModalOpen }: Props) {
           />
 
           <div className="mt-3 flex items-center gap-3">
-            <button className="px-2 py-1 border border-gray-600 cursor-pointer rounded-md">
-              Create Playlist
-            </button>
+            <Button>Create Playlist</Button>
 
-            <button className="px-2 py-1 border border-gray-600 cursor-pointer rounded-md" onClick={() => setIsModalOpen(false)}>
-              Cancel
-            </button>
+            <Button onClick={() => setIsModalOpen(false)}>Cancel</Button>
           </div>
         </form>
       </div>

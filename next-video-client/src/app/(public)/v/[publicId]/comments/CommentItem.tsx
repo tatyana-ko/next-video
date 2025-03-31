@@ -12,6 +12,7 @@ import { useSelector } from "react-redux"
 import type { RootState } from "@/store"
 import { useMutation } from "@tanstack/react-query"
 import { commentService } from "@/services/comment.service"
+import { Button } from "@/ui/button/Button"
 
 interface ICommentItemProps {
   comment: IComment
@@ -74,18 +75,18 @@ export function CommentItem({ comment, refetch }: ICommentItemProps) {
               }}
             />
             <div className="flex gap-2">
-              <button
+              <Button
                 className="px-3 py-0.5 border border-gray-500 rounded-md"
                 onClick={() => updateComment()}
               >
                 Save
-              </button>
-              <button
+              </Button>
+              <Button
                 className="px-3 py-0.5 border border-gray-500 rounded-md"
                 onClick={() => setIsEditing(false)}
               >
                 Cancel
-              </button>
+              </Button>
             </div>
           </div>)
           : <p className="my-3 text-sm">{commentText}</p>

@@ -5,6 +5,7 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import { WatchHistoryItem } from "./WatchHistoryItem";
 import { useState } from "react";
 import { ConfirmationWindow } from "@/components/ConfirmationWindow";
+import { Button } from "@/ui/button/Button";
 
 export function HistoryPage() {
   const [isConfirmationWindowOpen, setIsConfirmationWindowOpen] = useState(false);
@@ -26,12 +27,11 @@ export function HistoryPage() {
     <div>
       <div className="w-full mb-10 px-4 py-5 bg-gray-800 rounded-md">
         <h2 className="mb-2">History:</h2>
-        <button
-          className="px-3 py-1 mb-5 border border-gray-600 rounded-md cursor-pointer"
+        <Button
           onClick={() => setIsConfirmationWindowOpen(!isConfirmationWindowOpen)}
         >
           Clear history
-        </button>
+        </Button>
       </div>
 
       {isConfirmationWindowOpen &&

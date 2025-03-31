@@ -6,6 +6,7 @@ import { PlaylistItem } from "./PlaylistItem";
 import { Skeleton } from "@/ui/skeleton/Skeleton";
 import { useState } from "react";
 import { CreatePlaylist } from "./CreatePlaylist";
+import { Button } from "@/ui/button/Button";
 
 export function PlaylistsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,12 +23,12 @@ export function PlaylistsPage() {
       My playlists:
     </h2>
 
-    <button
-      className="mb-3 px-2 py-1 border border-gray-600 rounded-md cursor-pointer"
+    <Button
+      className="mb-3"
       onClick={() => setIsModalOpen(true)}
     >
       Add new playlist
-    </button>
+    </Button>
 
     {isLoading
       ? <Skeleton quantity={5} />
