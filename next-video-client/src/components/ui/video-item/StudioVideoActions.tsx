@@ -1,9 +1,11 @@
 'use client'
 
+import { STUDIO_PAGE } from "@/config/studio-page.config"
 import { studioVideoService } from "@/services/studio-video.service"
 import type { IFullVideo } from "@/types/video.types"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { Edit, Trash2 } from "lucide-react"
+import Link from "next/link"
 import toast, { type Toast } from "react-hot-toast"
 
 interface IStudioVideoActionsProps {
@@ -54,7 +56,9 @@ export function StudioVideoActions({ video }: IStudioVideoActionsProps) {
 
   return (
     <div className="flex items-start gap-3">
-      <Edit className="opacity-75 hover:opacity-100 cursor-pointer" size={20} />
+      <Link href={STUDIO_PAGE.EDIT_VIDEO(video.id)}>
+        <Edit className="opacity-75 hover:opacity-100 cursor-pointer" size={20} />
+      </Link>
 
       <button
         type="button"

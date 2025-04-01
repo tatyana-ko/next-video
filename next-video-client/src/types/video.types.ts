@@ -29,3 +29,7 @@ export interface IVideoResponse extends IFullVideo {
 export interface IVideosPagination extends IPagination {
 	videos: IFullVideo[];
 }
+
+export interface IVideoDataResponse extends IFullVideo {
+	tags: { id: string; name: string }[];
+}

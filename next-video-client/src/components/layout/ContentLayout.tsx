@@ -12,6 +12,7 @@ export function ContentLayout({ children }: PropsWithChildren<unknown>) {
 
 	const toggleSidebar = () => {
 		setIsSidebarOpen(!isSidebarOpen);
+		console.log(99);
 	};
 
 	useEffect(() => {
@@ -26,7 +27,7 @@ export function ContentLayout({ children }: PropsWithChildren<unknown>) {
 				isSidebarOpen ? styles.showedSidebar : styles.hideSidebar,
 			)}
 		>
-			<Sidebar toggleSidebar={toggleSidebar} />
+			<Sidebar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 			<Content>{children}</Content>
 		</div>
 	);

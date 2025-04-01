@@ -12,10 +12,16 @@ export function SidebarHeader({ toggleSidebar }: ISidebarHeaderProps) {
 			<button
 				className='cursor-pointer'
 				onClick={toggleSidebar}
+				aria-label='Sidebar switcher'
+				title='Sidebar switcher'
 			>
 				<AlignJustify />
 			</button>
-			<Link href={PUBLIC_PAGE.HOME_PAGE}>
+			<Link
+				href={PUBLIC_PAGE.HOME_PAGE}
+				aria-label='Open home page'
+				title='Home'
+			>
 				<div className='flex items-center relative'>
 					<ChevronRight
 						color='red'

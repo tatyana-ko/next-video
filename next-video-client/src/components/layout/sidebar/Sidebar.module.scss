@@ -1,8 +1,12 @@
 .hideSidebar > aside {
-	width: 3.8rem;
+	width: 3rem;
 	flex-grow: 0;
 
 	> div:first-child > a {
+		display: none;
+	}
+
+	>h2 {
 		opacity: 0;
 		transition: opacity 0.55s;
 	}
@@ -13,7 +17,12 @@
 }
 
 .showedSidebar > aside {
-	width: var(--sidebar-width);
+	width: 15rem;
+
+	>h2 {
+		opacity: 1;
+		transition: opacity 0.55s;
+	}
 }
 
 .initialSidebar > aside {

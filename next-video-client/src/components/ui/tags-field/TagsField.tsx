@@ -51,7 +51,7 @@ export function TagsField({ label, placeholder, error, tags, onTagsChange, class
             error ? 'border-red-500' : 'border-border'
           )}
         >
-          {tags.map((tag) => (
+          {tags?.length && tags.map((tag) => (
             <div
               key={tag}
               className='flex items-center px-2 py-1 bg-gray-700 text-white rounded'

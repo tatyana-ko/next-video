@@ -26,6 +26,6 @@ export function LogoutButton({ isLoggedIn }: { isLoggedIn: boolean }) {
     type="button"
     title="Logout"
     className="cursor-pointer hover:scale-[1.1]">
-    <LogOut size={20} />
+    <LogOut size={24} />
   </button>
 }

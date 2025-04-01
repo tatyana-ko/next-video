@@ -4,7 +4,7 @@ class StudioPage {
 	SETTINGS = `${this.HOME}/settings`;
 
 	EDIT_VIDEO = (path: string) => {
-		return `/edit/v/${path}`;
+		return `/studio/edit/v/${path}`;
 	};
 
 	EDIT_CHANNEL = (path: string) => {

@@ -14,16 +14,17 @@ interface ISidebarMenuProps {
 	title?: string;
 	items: ISidebarItem[];
 	hasBorder?: boolean;
+	isSidebarOpen: boolean
 }
 
-export function SidebarMenu({ title, items, hasBorder }: ISidebarMenuProps) {
+export function SidebarMenu({ title, items, hasBorder, isSidebarOpen }: ISidebarMenuProps) {
 	const pathname = usePathname();
 	const { isLoggedIn } = useSelector((state: RootState) => state.auth);
 
 	return (
-		<div className={clsx(hasBorder && 'border-b border-gray-600 mb-4')}>
+		<>
 			{title && <h2 className='text-xs opacity-50 uppercase'>{title}</h2>}
-			<nav>
+			<nav className={clsx(hasBorder && 'border-b border-gray-600 mb-4')}>
 				<ul>
 					{items.map(item => {
 						const props = {
@@ -43,18 +44,15 @@ export function SidebarMenu({ title, items, hasBorder }: ISidebarMenuProps) {
 						: isMyChannel ? null : (
 							<MenuItem
 							key={item.label}
+							isSidebarOpen={isSidebarOpen}
 							{...props}
 						/>
 						)
 					})}
 				</ul>
 			</nav>
-		</div>
+		
+			</>
 	);
 }
 
-// <MenuItem
-// 							key={item.label}
-// 							item={item}
-// 							isActiveLink={!!match(item.link)(pathname)}
-// 						/>

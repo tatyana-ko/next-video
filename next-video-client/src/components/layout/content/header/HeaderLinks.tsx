@@ -10,7 +10,7 @@ export function HeaderLinks() {
 				className='opacity-80 hover:opacity-100'
 				title='upload video'
 			>
-				<PlusIcon size={16} />
+				<PlusIcon size={24} />
 			</Link>
 
 			<Link
@@ -18,7 +18,7 @@ export function HeaderLinks() {
 				className='opacity-80 hover:opacity-100'
 				title='studio page'
 			>
-				<LayoutGrid size={16} />
+				<LayoutGrid size={24} />
 			</Link>
 
 			<Link
@@ -26,7 +26,7 @@ export function HeaderLinks() {
 				className='opacity-80 hover:opacity-100'
 				title='notifications'
 			>
-				<Bell size={16} />
+				<Bell size={24} />
 			</Link>
 		</div>
 	);
