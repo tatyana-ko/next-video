@@ -56,7 +56,7 @@ export function StudioVideoActions({ video }: IStudioVideoActionsProps) {
 
   return (
     <div className="flex items-start gap-3">
-      <Link href={STUDIO_PAGE.EDIT_VIDEO(video.id)}>
+      <Link href={STUDIO_PAGE.EDIT_VIDEO(video.id)} title="Edit video" aria-label="Go to video editing page">
         <Edit className="opacity-75 hover:opacity-100 cursor-pointer" size={20} />
       </Link>
 
@@ -65,6 +65,8 @@ export function StudioVideoActions({ video }: IStudioVideoActionsProps) {
         onClick={handleDeleteVideo}
         disabled={isPending}
         className="opacity-75 hover:opacity-100"
+        title="Delete video"
+        aria-label="Delete video from channel"
       >
         <Trash2 className="cursor-pointer" size={20} />
       </button>

@@ -95,7 +95,7 @@ export function StudioEditPage() {
                   control={control}
                   render={({ field: { onChange, value }, fieldState: { error } }) => (
                     <UploadField
-                      label="thumbnailUrl:"
+                      label="Video intro:"
                       value={value}
                       onChange={onChange}
                       error={error}

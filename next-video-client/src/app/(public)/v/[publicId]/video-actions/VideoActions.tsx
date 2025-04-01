@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 
 export default function VideoActions({ video, likes }: { video: IVideoResponse, likes: number }) {
   const { profile, refetch } = useProfile();
-  const hasLike = profile?.likes.some(like => like.videoId === video.id);
+  const hasLike = profile?.likes.some(like => like.video.id === video.id);
 
   const [optimisticLikes, setOptimisticLikes] = useState(likes);
   const [isLiked, setIsLiked] = useState(hasLike);
@@ -65,7 +65,7 @@ export default function VideoActions({ video, likes }: { video: IVideoResponse, 
           className='flex items-center gap-1 cursor-pointer'
           onClick={() => mutateAsync()}
         >
-          <Heart size={14} color='red' />
+          <Heart size={14} color='red' fill={isLiked ? 'red' : 'transparent'} />
           {optimisticLikes}
         </button>
       </div>

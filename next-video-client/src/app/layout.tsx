@@ -15,6 +15,14 @@ export const metadata: Metadata = {
 	},
 	description: 'Video viewing platform',
 	metadataBase: new URL('http://localhost:3000/'),
+	icons: {
+		icon: '/logo.png'
+	},
+	openGraph: {
+		type: 'website',
+		description: 'Video viewing platform',
+		emails: ['info@test.com']
+	}
 };
 
 export default function RootLayout({

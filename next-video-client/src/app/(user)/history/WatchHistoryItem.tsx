@@ -9,24 +9,25 @@ interface IWatchHistoryItemProps {
   video: IVideoResponse
 }
 
-export function WatchHistoryItem({video}: IWatchHistoryItemProps) {
+export function WatchHistoryItem({ video }: IWatchHistoryItemProps) {
   return (
     <li className="flex items-start gap-5">
-      <Link href={PUBLIC_PAGE.VIDEO(video.publicId)} className="rounded-md">
+      <Link href={PUBLIC_PAGE.VIDEO(video.publicId)} className="flex-shrink-0">
         <Image
           alt='video cover'
           src={video.thumbnailUrl}
           width={200}
           height={100}
+          className=" rounded-md"
         />
       </Link>
 
       <div>
         <h3 className="mb-4">{video.title}</h3>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col">
           <span className="text-sm opacity-50">{transformViews(video.viewsCount)}</span>
-          <span className="text-sm opacity-50">{transformDate(video.createdAt)}</span>
+          <span className="text-xs opacity-50">{transformDate(video.createdAt)}</span>
         </div>
       </div>
     </li>

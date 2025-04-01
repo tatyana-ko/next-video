@@ -12,7 +12,7 @@ interface IVolumeControllerProps {
 export function VolumeController({ value, isMuted, changeVolume, toggleMute }: IVolumeControllerProps) {
   return (
     <div className="flex items-center gap-2">
-      <button onClick={toggleMute}>
+      <button onClick={toggleMute} aria-label="Turn off sound">
         {isMuted ? <VolumeX /> : (value < 0.4) ? <Volume1 /> : <Volume2 />}
       </button>
 

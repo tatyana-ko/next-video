@@ -1,14 +1,12 @@
 export function PlayerProgressBar({ progress }: { progress: number }) {
   return (
-    <div className='absolute -top-0.5 left-0 w-full bg-gray-200'>
+    <div className='w-full bg-gray-200/50 rounded-md'>
       <div
         style={{
           width: `${progress}%`
         }}
-        className='h-1 bg-red-600 relative'
+        className='h-1 bg-red-500 relative rounded-md'
       >
-        {/* TODO: Current time */}
-        {/* <div className='absolute -top-1 right-0 w-3 h-3 bg-primary rounded-full border-2 border-solid border-white shadow' /> */}
       </div>
     </div>
   )

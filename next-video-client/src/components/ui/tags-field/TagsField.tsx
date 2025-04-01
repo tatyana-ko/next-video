@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent, type KeyboardEvent } from "react"
 import { twMerge } from "tailwind-merge"
 import clsx from 'clsx'
+import toast from "react-hot-toast"
 
 interface ITagsFieldProps {
   label: string
@@ -29,6 +30,10 @@ export function TagsField({ label, placeholder, error, tags, onTagsChange, class
   }
 
   const addTag = (tag: string) => {
+    if(tags.includes(tag)) {
+      toast.error('This tag already exists!')
+    }
+
     if (tag && !tags.includes(tag)) {
       const newTags = [...tags, tag]
       setInputValue('')
@@ -44,14 +49,14 @@ export function TagsField({ label, placeholder, error, tags, onTagsChange, class
   return (
     <div className={twMerge('mb-4', className)}>
       <label>
-        <span className='block text-gray-400 font-semibold mb-2'>{label}</span>
+        <span className='block text-gray-500  mb-2'>{label}</span>
         <div
           className={clsx(
             'w-full px-3 py-2 border rounded shadow-sm flex flex-wrap gap-2 transition-colors focus-within:border-gray-500 bg-transparent',
             error ? 'border-red-500' : 'border-border'
           )}
         >
-          {tags?.length && tags.map((tag) => (
+          {!!tags?.length && tags.map((tag) => (
             <div
               key={tag}
               className='flex items-center px-2 py-1 bg-gray-700 text-white rounded'

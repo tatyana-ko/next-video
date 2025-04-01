@@ -38,13 +38,12 @@ export function VideoPlayer({ fileName, maxResolution }: IVideoPlayerProps) {
         preload='metadata'
       />
 
-      <div className='flex items-center justify-between p-2 absolute bottom-3 w-full'>
-        <PlayerProgressBar progress={progress} />
+      <div className='flex items-center gap-3 p-2 absolute bottom-3 w-full'>
 
         <div className='flex items-center gap-4'>
           <button
             onClick={togglePlayPause}
-            className=''
+            title="play/pause"
           >
             {isPlaying ? <Pause /> : <Play />}
           </button>
@@ -53,6 +52,8 @@ export function VideoPlayer({ fileName, maxResolution }: IVideoPlayerProps) {
             <span>{getTime(videoTime)}</span>
           </div>
         </div>
+
+        <PlayerProgressBar progress={progress} />
 
         <div className='flex items-center gap-5'>
           <VolumeController
@@ -68,7 +69,7 @@ export function VideoPlayer({ fileName, maxResolution }: IVideoPlayerProps) {
           />
           <button
             onClick={toggleFullScreen}
-            className='hoverPrimary'
+            aria-label="toggle fullscreen button"
           >
             <Maximize />
           </button>

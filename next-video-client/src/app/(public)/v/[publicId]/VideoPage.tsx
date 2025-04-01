@@ -10,8 +10,10 @@ import { PUBLIC_PAGE } from '@/config/public-page.config';
 import { VideoDescription } from './description/VideoDescription';
 import VideoActions from './video-actions/VideoActions';
 import { VideoPlayer } from '@/ui/video-player/VideoPlayer';
-import { Comments } from './comments/Comments';
 import { useWatchHistory } from '@/hooks/useWatchHistory';
+import dynamic from 'next/dynamic';
+
+const DynamicComments = dynamic(() => import('./comments/Comments').then(mod => mod.Comments))
 
 export function VideoPage({ video }: {video: IVideoResponse}) {
   useWatchHistory({video});
@@ -57,7 +59,7 @@ export function VideoPage({ video }: {video: IVideoResponse}) {
 
         <VideoDescription description={video.description} />
 
-        <Comments video={video}/>
+        <DynamicComments video={video}/>
       </div>
 
       {!!video.similarVideos.length && <SimilarVideos videos={video.similarVideos} />}

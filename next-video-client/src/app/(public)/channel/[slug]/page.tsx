@@ -44,7 +44,7 @@ export default async function ChannelPage({ params}: TPageSlugProp) {
 	const channel = data?.data;
 
 	return (
-		<div className='w-[1200px] ml-auto mr-auto'>
+		<div className='max-w-[1200px] ml-auto mr-auto'>
 			<div className='relative w-full h-[200px] overflow-hidden mb-4'>
 				<Image
 					alt='channel avatar'

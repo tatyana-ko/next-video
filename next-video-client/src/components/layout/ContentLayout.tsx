@@ -12,7 +12,6 @@ export function ContentLayout({ children }: PropsWithChildren<unknown>) {
 
 	const toggleSidebar = () => {
 		setIsSidebarOpen(!isSidebarOpen);
-		console.log(99);
 	};
 
 	useEffect(() => {

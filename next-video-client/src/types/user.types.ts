@@ -1,5 +1,5 @@
 import type { IChannel } from './channel.types';
-import type { IFullVideo, IVideo } from './video.types';
+import type {  IVideo, IVideoResponse } from './video.types';
 import type { IWatchHistory } from './watchHistory.types';
 
 export interface IUser {
@@ -17,7 +17,7 @@ export interface IFullUserInfo extends IUser {
 export interface IProfileResponse extends IFullUserInfo {
 	likes: {
 		id: string;
-		video: IFullVideo;
+		video: IVideoResponse;
 		userId: string;
 	}[];
 	subscribedVideos?: IVideo[];

@@ -1,4 +1,5 @@
 import { useUpload } from "@/hooks/useUpload"
+import { Upload } from "lucide-react"
 import Image from "next/image"
 import { useId } from "react"
 import type { FieldError } from "react-hook-form"
@@ -36,13 +37,23 @@ export function UploadField({
         <span className="block mb-2 text-gray-500 font-semibold">{label}</span>
       </label>
 
-      <input
-        id={inputId}
-        type="file"
-        onChange={uploadFile}
-        accept="image/*"
-        className="block w-full border border-gray-400 rounded-md cursor-pointer"
-      />
+      <label
+        htmlFor={inputId}
+        className="w-max px-4 py-2 flex items-center gap-2 border border-dashed border-gray-600 rounded-md cursor-pointer
+                   hover:border-solid hover:border-green-600 "
+      >
+        <Upload size={24} />
+        <span>Upload</span>
+
+        <input
+          id={inputId}
+          type="file"
+          onChange={uploadFile}
+          accept="image/*"
+          className="hidden"
+        />
+      </label>
+
 
       {error && <span className="block mt-1 text-red-600">{error.message}</span>}
 
